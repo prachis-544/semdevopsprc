@@ -1,0 +1,89 @@
+
+<html>
+<head>
+    <title>Event Registration</title>
+</head>
+<body style="font-family:Arial; background-color:lightblue;
+text-align:center;">
+
+<h2>Event Registration Form</h2>
+
+<form onsubmit="return validate()"
+style="background:white; display:inline-block;
+padding:20px; border-radius:10px; margin-top:50px;">
+
+    Name:
+    <input type="text" id="name" style="padding:7px;">
+    <br><br>
+
+    Email:
+    <input type="text" id="email" style="padding:7px;">
+    <br><br>
+
+    Phone:
+    <input type="text" id="phone" style="padding:7px;">
+    <br><br>
+
+    College:
+    <input type="text" id="college" style="padding:7px;">
+    <br><br>
+
+    Event:
+    <select id="event" style="padding:7px;">
+        <option value="">Select Event</option>
+        <option>Technical</option>
+        <option>Non-Technical</option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Register"
+    style="background:blue; color:white; padding:8px 20px;
+    border:0; cursor:pointer;">
+
+    <p id="message" style="color:green;"></p>
+
+</form>
+
+<script>
+function validate() {
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var college = document.getElementById("college").value;
+    var event = document.getElementById("event").value;
+
+    if (name == "") {
+        alert("Enter your name");
+        return false;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+        alert("Enter a valid email");
+        return false;
+    }
+
+    if (phone.length != 10 || isNaN(phone)) {
+        alert("Enter a valid 10 digit phone number");
+        return false;
+    }
+
+    if (college == "") {
+        alert("Enter your college name");
+        return false;
+    }
+
+    if (event == "") {
+        alert("Please select an event");
+        return false;
+    }
+
+    document.getElementById("message").innerHTML =
+    "Registration Successful!";
+
+    return false;
+}
+</script>
+
+</body>
+</html>
